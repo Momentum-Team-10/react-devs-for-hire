@@ -1,9 +1,7 @@
-// index.js
-import React from 'react'
 import ReactDOM from 'react-dom'
-
-const App = () => {
-  return <h1>Hello World!</h1>
-}
+import 'normalize.css'
+import 'sakura.css'
+import './App.css'
+import App from './App.js'
 
 ReactDOM.render(<App />, document.querySelector('#root'))
