@@ -1,9 +1,19 @@
+import { useState } from 'react'
+
 export default function Developer(props) {
-  console.log(props)
+  const { name, expertise } = props
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <div className="dev">
-      <p>{props.devName}</p>
-      <p>Expertise: front end</p>
+      <p>{name}</p>
+      {expanded && (
+        <ul>
+          {expertise.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
