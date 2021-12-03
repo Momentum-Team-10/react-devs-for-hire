@@ -7,12 +7,24 @@ export default function Developer(props) {
   return (
     <div className="dev">
       <p>{name}</p>
-      {expanded && (
-        <ul>
-          {expertise.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
+      {expanded ? (
+        <div>
+          <button
+            className="btn-sm controls"
+            onClick={() => setExpanded(false)}
+          >
+            Hide expertise
+          </button>
+          <ul>
+            {expertise.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <button className="btn-sm controls" onClick={() => setExpanded(true)}>
+          Show expertise
+        </button>
       )}
     </div>
   )
