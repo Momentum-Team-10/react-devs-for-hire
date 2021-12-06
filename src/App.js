@@ -26,6 +26,7 @@ export const App = () => {
           expertise={dev.expertise}
           favorited={dev.favorited}
           handleFavorite={handleFavorite}
+          githubName={dev.githubName}
         />
       ))}
     </>
