@@ -11,7 +11,7 @@ export const developerData = [
     expertise: ['front-end', 'react', 'design', 'a11y'],
     available_for_hire: false,
     favorited: false,
-    githubName: 'amygori',
+    githubName: 'janelle-bouchard',
   },
   {
     name: 'Trent',
