@@ -1,12 +1,15 @@
 import { useState } from 'react'
 
 export default function Developer(props) {
-  const { name, expertise } = props
+  const { name, expertise, favorited, handleFavorite } = props
   const [expanded, setExpanded] = useState(false)
 
   return (
     <div className="dev">
       <p>{name}</p>
+      <button className="fav-btn" onClick={() => handleFavorite(name)}>
+        {favorited ? '💔' : '❤️'}
+      </button>
       {expanded ? (
         <div>
           <button
