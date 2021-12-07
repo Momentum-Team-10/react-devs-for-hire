@@ -4,6 +4,7 @@ import { developerData } from './developerData'
 
 export const App = () => {
   const [developers, setDevelopers] = useState(developerData)
+  const [selectedDev, setSelectedDev] = useState(null)
 
   const handleFavorite = (name) => {
     const newDevs = developers.map((dev) => {
@@ -19,16 +20,32 @@ export const App = () => {
   return (
     <>
       <h1>Developers for Hire!</h1>
-      {developers.map((dev, index) => (
-        <Developer
-          name={dev.name}
-          key={index}
-          expertise={dev.expertise}
-          favorited={dev.favorited}
-          handleFavorite={handleFavorite}
-          githubName={dev.githubName}
-        />
-      ))}
+      {selectedDev ? (
+        <>
+          <div>
+            <button onClick={() => setSelectedDev(null)}>Go Back</button>
+          </div>
+          <Developer
+            name={selectedDev.name}
+            expertise={selectedDev.expertise}
+            favorited={selectedDev.favorited}
+            handleFavorite={handleFavorite}
+            githubName={selectedDev.githubName}
+          />
+        </>
+      ) : (
+        <>
+          {developers.map((dev, index) => (
+            <div
+              className="dev card"
+              key={index}
+              onClick={() => setSelectedDev(dev)}
+            >
+              <p>{dev.name}</p>
+            </div>
+          ))}
+        </>
+      )}
     </>
   )
 }
